@@ -25,10 +25,7 @@ public class HomeFilter extends HttpFilter implements Filter {
 	public HomeFilter() {
         super();
     }
-	
-	public void destroy() {
 
-	}
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		HttpServletRequest req = (HttpServletRequest)request;
@@ -39,12 +36,10 @@ public class HomeFilter extends HttpFilter implements Filter {
 
 		//if user is not null and role =1 it mean user is type user 
 				if(user == null || (user.getRoleId()==1 ))  {
-					System.out.println("Normal User Can access home page");
 					chain.doFilter(request, response);
 				}
 				
 				else {
-					System.out.println("Admin cant access home page");
 		            request.getRequestDispatcher(PageURL.DASHBOARD.getUrl()).forward(request, response);
 				}
 		

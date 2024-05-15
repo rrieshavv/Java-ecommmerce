@@ -46,8 +46,6 @@ public class AdminFilter extends HttpFilter implements Filter {
 				
 				//if user is not null and role =1 it mean user is type user 
 				if(user != null && user.getRoleId()==2) {
-					System.out.println("Admin Login");
-					
 					//forward request for futher processing
 					chain.doFilter(request, response);
 				}
